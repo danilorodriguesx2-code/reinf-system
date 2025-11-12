@@ -207,11 +207,20 @@ def main():
                         use_container_width=True
                     )
 
-                    # Botão para gerar relatório Excel
+                    # Botão para gerar relatório Excel - DOWNLOAD DIRETO
                     if st.button("📊 Gerar Relatório Excel 4020", key="btn_4020"):
-                        excel_file = report_gen.generate_excel_report_4020(
+                        excel_data = report_gen.generate_excel_report_4020(
                             data_4020)
-                        st.success(f"Relatório gerado: {excel_file}")
+                        if excel_data:
+                            st.download_button(
+                                label="⬇️ Baixar Relatório Excel 4020",
+                                data=excel_data,
+                                file_name=f"relatorio_4020_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx",
+                                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                key="dl_4020"
+                            )
+                        else:
+                            st.error("❌ Erro ao gerar o relatório 4020.")
 
                 else:
                     st.warning("Nenhum dado encontrado no arquivo.")
@@ -405,10 +414,19 @@ def main():
                     st.success(
                         "✅ Todos os registros estão validados conforme as regras!")
 
-                # Botão para gerar relatório Excel
+                # Botão para gerar relatório Excel - DOWNLOAD DIRETO
                 if st.button("📊 Gerar Relatório Excel 2055", key="btn_2055"):
-                    excel_file = report_gen.generate_excel_report_2055(df_2055)
-                    st.success(f"Relatório gerado: {excel_file}")
+                    excel_data = report_gen.generate_excel_report_2055(df_2055)
+                    if excel_data:
+                        st.download_button(
+                            label="⬇️ Baixar Relatório Excel 2055",
+                            data=excel_data,
+                            file_name=f"relatorio_2055_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx",
+                            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                            key="dl_2055"
+                        )
+                    else:
+                        st.error("❌ Erro ao gerar o relatório 2055.")
 
     with tab3:
         st.header("🏗️ Análise do Evento 2010 - Tomador de Serviços")
@@ -553,11 +571,20 @@ def main():
                         use_container_width=True
                     )
 
-                    # Botão para gerar relatório Excel
+                    # Botão para gerar relatório Excel - DOWNLOAD DIRETO
                     if st.button("📊 Gerar Relatório Excel 2010", key="btn_2010"):
-                        excel_file = report_gen.generate_excel_report_2010(
+                        excel_data = report_gen.generate_excel_report_2010(
                             data_2010)
-                        st.success(f"Relatório gerado: {excel_file}")
+                        if excel_data:
+                            st.download_button(
+                                label="⬇️ Baixar Relatório Excel 2010",
+                                data=excel_data,
+                                file_name=f"relatorio_2010_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx",
+                                mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                key="dl_2010"
+                            )
+                        else:
+                            st.error("❌ Erro ao gerar o relatório 2010.")
 
                 else:
                     st.warning("Nenhum dado encontrado no arquivo.")
